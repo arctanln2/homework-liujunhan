@@ -6,21 +6,27 @@
     android:orientation="vertical"
     tools:context=".BasicUIActivity"
     android:gravity="center_horizontal">
-
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="RecyclerView"
-        android:textAllCaps="false" />
-
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:text="题目"
+        android:gravity="center"
+        android:textSize="24sp" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="88dp"
         android:text="题目详情"
         android:textSize="24sp" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="返回目录"
+        android:textAllCaps="false" />
+
+
 
 
 </LinearLayout>
