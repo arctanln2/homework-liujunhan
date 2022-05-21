@@ -1,4 +1,3 @@
 package com.bytedance.jstu.homework
 
-class Item {
-}
+data class Item(var title: String, var content: String, var flag: Int)
