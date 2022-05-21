@@ -18,6 +18,9 @@ class ItemsActivity : AppCompatActivity() {
     private val addItem: Button by lazy {
         findViewById(R.id.add_item)
     }
+    private val refreshBut: Button by lazy{
+        findViewById(R.id.refresh_menu)
+    }
 
     private var titleText: EditText?=null
     private var DesText: EditText?=null
@@ -36,6 +39,14 @@ class ItemsActivity : AppCompatActivity() {
             } while (cursor.moveToPrevious())
         }
         cursor.close()
+        val recyclerView = findViewById<RecyclerView>(R.id.items_list)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val adapter = ItemAdapter(this)
+
+        adapter.setContentList(data)
+
+        recyclerView.adapter = adapter
     }
 
     @SuppressLint("Range")
@@ -58,18 +69,13 @@ class ItemsActivity : AppCompatActivity() {
             db?.insert("item", null, values)
 
             updateList()
-
-            val recyclerView = findViewById<RecyclerView>(R.id.items_list)
-            recyclerView.layoutManager = LinearLayoutManager(this)
-
-            val adapter = ItemAdapter(this)
-
-            adapter.setContentList(data)
-
-            recyclerView.adapter = adapter
         }
-//        val data = arrayListOf<Item>()
+        refreshBut.setOnClickListener{
+            updateList()
+        }
 
+        updateList()
+//        val data = arrayListOf<Item>()
     }
 
 

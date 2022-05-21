@@ -27,4 +27,5 @@ class MyDBHelper(val context: Context, name: String, version: Int): SQLiteOpenHe
 //            db?.execSQL(createUserList)
 //        }
     }
+
 }

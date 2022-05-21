@@ -26,6 +26,7 @@ class ItemAdapter(activity: ItemsActivity) : RecyclerView.Adapter<ItemAdapter.Ta
 
             db?.delete("item", "title = ?", arrayOf(title.toString()))
             Toast.makeText(mainActivity, "任务${title}已删除", Toast.LENGTH_SHORT).show()
+
         }
         return viewHolder
     }
